@@ -13,4 +13,26 @@ const input = readFile("data.txt");
 
 const inputArray = input.split("\r\n");
 
-console.log(inputArray);
+let sum = 0;
+
+for (line of inputArray) {
+  let firstDigit;
+  let lastDigit;
+  for (char of line) {
+    if (char >= "0" && char <= "9") {
+      firstDigit = char;
+      break;
+    }
+  }
+  reversedLine = line.split("").reverse().join("");
+  for (char of reversedLine) {
+    if (char >= "0" && char <= "9") {
+      lastDigit = char;
+      break;
+    }
+  }
+  digitString = firstDigit + lastDigit;
+  sum += parseInt(digitString);
+}
+
+console.log(sum);
